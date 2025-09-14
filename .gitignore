@@ -1,3 +1,14 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+dist
+dist/
+dist-ssr
+build/
+
 # Logs
 logs
 *.log
@@ -6,23 +17,30 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+vite.config.ts.timestamp-*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-.vscode/
-!.vscode/extensions.json
-.idea
+# Editor / OS files
 .DS_Store
-*.suo
+Thumbs.db
+*.local
 *.ntvs*
 *.njsproj
 *.sln
+*.suo
+*.swp
+*.swo
 *.sw?
+*.idea/
+.vscode/
+.vscode/*
+!.vscode/extensions.json
+
+# Environment variables
 .env
+.env.* 
 *.env
+
+# Personal images or assets
+src/images/profile.png
+src/images/private/*
 src/assets/private/
