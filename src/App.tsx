@@ -21,7 +21,7 @@ function Layout() {
       </button>
 
       <aside className={`sidebar ${navOpen ? "show-nav" : ""}`}>
-        <div className="logo">K</div>
+        <div className="logo"><a href="/">K</a></div>
 
         <nav>
           <ul>
