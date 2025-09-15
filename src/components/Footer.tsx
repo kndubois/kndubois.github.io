@@ -28,7 +28,7 @@ export default function Footer() {
           <h3>Connect</h3>
           <div className="socials">
             <a
-              href="mailto:youremail@example.com"
+              href="mailto:katiedubois@hotmail.com"
               aria-label="Email"
               target="_blank"
               rel="noopener noreferrer"
