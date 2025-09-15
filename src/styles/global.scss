@@ -437,7 +437,7 @@ p {
 
 
 
-/* ===== Projects Section ===== */
+/* ===== Projects Page===== */
 .projects {
   padding: 4rem 2rem;
   background: $dark-bg;
@@ -458,11 +458,31 @@ p {
   }
 
   .project-card {
-    background: #1a1a1a;
-    color: $text-color;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    border-radius: 12px;
     padding: 2rem;
-    border-radius: 10px;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      }
+
+      .icon-link {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        color: $muted-text;
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $secondary-color;
+        }
+      }
 
     h2 {
       margin-top: 0;
@@ -534,15 +554,20 @@ p {
 }
 
 
+/* ===== Contact Page ===== */
 .contact {
-  padding: 4rem 2rem;
-  background: $dark-bg;
+  padding: 6rem 8%;
   text-align: center;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  border-top: 1px solid rgba(255,255,255,0.05);
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     margin-bottom: 1rem;
-    color: $accent-color;
+    font-weight: 700;
+    color: $primary-color;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
   p {
@@ -551,29 +576,16 @@ p {
     color: $muted-text;
   }
 
-  /* Contact Links */
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-
-    a {
-      color: $primary-color;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: $secondary-color;
-      }
-    }
-  }
-
-  /* Contact Form */
   .contact-form {
-    max-width: 600px;
+    width: 100%;
+    max-width: 650px;
     margin: 0 auto;
     text-align: left;
+    background: rgba(255,255,255,0.02);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    box-sizing: border-box; 
 
     .form-group {
       margin-bottom: 1.5rem;
@@ -582,6 +594,7 @@ p {
         display: block;
         margin-bottom: 0.5rem;
         font-size: 0.95rem;
+        font-weight: 600;
         color: $text-color;
       }
 
@@ -589,13 +602,14 @@ p {
       textarea,
       select {
         width: 100%;
-        padding: 0.75rem 1rem;
-        border-radius: 6px;
+        padding: 0.85rem 1rem;
+        border-radius: 8px;
         border: 1px solid rgba(255, 255, 255, 0.2);
-        background: #1a1a1a;
+        background: #111;
         color: $text-color;
         font-size: 1rem;
-        appearance: none;
+        transition: border 0.3s ease, box-shadow 0.3s ease;
+        box-sizing: border-box;
       }
 
       input:focus,
@@ -603,89 +617,75 @@ p {
       select:focus {
         outline: none;
         border-color: $primary-color;
+        box-shadow: 0 0 6px rgba($primary-color, 0.4);
       }
 
       select {
-        width: 106%;
-        height: 48px; 
-        padding: 0.75rem 1rem;
-        border-radius: 6px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: #1a1a1a;
-        color: $text-color;
-        font-size: 1rem;
-        line-height: 1.5;
-        appearance: none;
-        cursor: pointer;
-
+        height: 48px;
+        padding-right: 2.5rem;
         background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
         background-repeat: no-repeat;
-        background-position: right 0.8rem center;
+        background-position: right 1rem center;
         background-size: 16px 16px;
-        padding-right: 2.5rem;
+        appearance: none;
       }
     }
 
     .btn-submit {
-      background: $primary-color;
+      background: linear-gradient(135deg, $primary-color, $secondary-color);
       color: #fff;
       font-weight: bold;
       border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 30px;
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba($primary-color, 0.4);
 
       &:hover {
-        background: color.adjust($primary-color, $lightness: -10%);
-        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba($primary-color, 0.5);
       }
 
-        &.loading {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5rem;
-          pointer-events: none;
-          opacity: 0.9;
+      &.loading {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        pointer-events: none;
+        opacity: 0.85;
 
-          &::after {
-            content: "";
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid #fff;
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-          }
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          margin-left: 10px;
+          border: 2px solid #fff;
+          border-top-color: transparent;
+          border-radius: 50%;
+          animation: spin 0.8s linear infinite;
         }
       }
-
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
     }
 
     .form-status {
-      margin-top: 1rem;
+      margin-top: 1.2rem;
       font-size: 1rem;
       font-weight: 600;
+      color: $muted-text;
       opacity: 0;
-      transform: translateY(-10px);
       animation: fadeSlideIn 0.5s ease forwards;
     }
   }
 
-    @keyframes fadeSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
 

@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
+
 export default function Projects() {
   return (
     <section id="projects" className="projects">
@@ -5,6 +8,13 @@ export default function Projects() {
       <div className="project-list">
 
         <div className="project-card">
+          <a href="https://github.com/kndubois/FinTrack" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             className="icon-link" 
+             title="View Project">
+            <FontAwesomeIcon icon={faFolderOpen} />
+          </a>
           <h2>FinTrack</h2>
           <p>A personal finance tracker.</p>
           <div className="tech-stack">
@@ -18,6 +28,13 @@ export default function Projects() {
         </div>
 
         <div className="project-card">
+          <a href="https://github.com/kndubois/TravelPlanner" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             className="icon-link" 
+             title="View Project">
+            <FontAwesomeIcon icon={faFolderOpen} />
+          </a>
           <h2>TravelPlanner</h2>
           <p>A trip itinerary app.</p>
           <div className="tech-stack">
@@ -32,6 +49,13 @@ export default function Projects() {
         </div>
 
         <div className="project-card">
+          <a href="https://github.com/kndubois/MeatMeals" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             className="icon-link" 
+             title="View Project">
+            <FontAwesomeIcon icon={faFolderOpen} />
+          </a>
           <h2>Meat Meals</h2>
           <p>A weight loss meal tracker.</p>
           <div className="tech-stack">
