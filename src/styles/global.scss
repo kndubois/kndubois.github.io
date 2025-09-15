@@ -1,3 +1,5 @@
+@use "sass:color";
+
 /* ===== Variables ===== */
 $primary-color: #1e90ff;
 $secondary-color: #ff0080;
@@ -258,7 +260,7 @@ p {
           height: 320px;
           border-radius: 50%;
           background: url("/images/profile.png") center/cover no-repeat;
-          border: 3px solid #fff;
+          border: 3px solid #ffffff63;
           z-index: 1;
           box-shadow: 0 0 35px rgba(30, 144, 255, 0.7),
                       0 0 70px rgba(106, 90, 205, 0.5),
@@ -349,11 +351,20 @@ p {
       border-radius: 12px;
       text-align: left;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position:relative;
 
 
-      &:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      .icon-link {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        color: $muted-text;
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $secondary-color;
+        }
       }
 
       h3 {
@@ -365,12 +376,6 @@ p {
       p {
         margin: 0.75rem 0 1.25rem;
         color: $muted-text;
-      }
-
-      .link {
-        color: $secondary-color;
-        font-weight: 600;
-        text-decoration: none;
       }
     }
   }
@@ -520,7 +525,7 @@ p {
           color: #fff;
 
           &:hover {
-            background: darken($primary-color, 10%);
+            background: color.adjust($primary-color, $lightness: -10%);
           }
         }
       }
@@ -632,7 +637,7 @@ p {
       transition: background 0.3s ease, transform 0.2s ease;
 
       &:hover {
-        background: darken($primary-color, 10%);
+        background: color.adjust($primary-color, $lightness: -10%);
         transform: translateY(-2px);
       }
 

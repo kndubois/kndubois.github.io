@@ -1,4 +1,6 @@
 import useReveal from "../hooks/useReveal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFolderOpen, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   useReveal();
@@ -34,8 +36,11 @@ export default function Home() {
           ideas into polished, user-friendly solutions.
         </p>
         <div className="skills">
+          <span>HTML</span>
+          <span>CSS</span>
           <span>React</span>
           <span>Next.js</span>
+          <span>TypeScript</span>
           <span>Python</span>
           <span>Azure SQL</span>
         </div>
@@ -45,14 +50,18 @@ export default function Home() {
         <h2>Featured Projects</h2>
         <div className="project-teasers">
           <div className="teaser">
+            <a href="/projects" className="icon-link" title="View Project">
+              <FontAwesomeIcon icon={faInfoCircle} size="lg" />
+            </a>
             <h3>FinTrack</h3>
             <p>A personal finance tracker built with Python and Azure SQL.</p>
-            <a href="/projects" className="link">View Project →</a>
           </div>
           <div className="teaser">
+            <a href="/projects" className="icon-link" title="View Project">
+              <FontAwesomeIcon icon={faInfoCircle} size="lg" />
+            </a>
             <h3>TravelPlanner</h3>
             <p>A trip itinerary app built with Node.js and Express.</p>
-            <a href="/projects" className="link">View Project →</a>
           </div>
         </div>
         <a href="/projects" className="btn secondary">See All Projects</a>
