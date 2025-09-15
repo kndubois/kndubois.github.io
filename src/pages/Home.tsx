@@ -1,6 +1,6 @@
 import useReveal from "../hooks/useReveal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFolderOpen, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   useReveal();
