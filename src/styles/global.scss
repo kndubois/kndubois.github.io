@@ -700,8 +700,8 @@ p {
 
   .footer-content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
     margin-bottom: 2rem;
     align-items: start;
 
@@ -712,6 +712,7 @@ p {
         color: $primary-color;
         text-transform: uppercase;
         letter-spacing: 1px;
+        text-align:Center;
       }
 
       p {
@@ -722,6 +723,7 @@ p {
 
       &.about {
         text-align: left;
+        max-width:320px;
       }
 
       &.links {
@@ -752,7 +754,6 @@ p {
 
       
       &.connect {
-        text-align: right;
         
         .socials {
           display: flex;
@@ -846,6 +847,10 @@ p {
     z-index: 1500;
     padding: 2rem 1rem;
     transition: left .3s ease;
+    align-items:center;
+    justify-content:center;
+    display:flex;
+    flex-direction:column;
 
       .logo {
         font-size: 1.8rem;
@@ -856,7 +861,10 @@ p {
       }
     
       nav {
-      display: none;
+      flex:1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-top:1rem;
 
         ul {
@@ -870,7 +878,7 @@ p {
           justify-content: center;
           align-items: center;
 
-          li { margin:1rem 0; }
+          li { margin:1rem 0; writing-mode: horizontal-tb; transform: none; text-align: center;}
 
             li a {
               text-decoration: none;
@@ -890,7 +898,7 @@ p {
   .socials {
     display: flex;
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top:auto;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 
     a {
@@ -968,10 +976,24 @@ p {
 
     .footer-content {
       grid-template-columns: 1fr;
-      text-align: center;
+      gap:2.5rem;
+      text-align:center;
 
-      .socials {
-        justify-content: center;
+      .footer-section {
+        text-align: center;
+
+        h3 { 
+          text-align:center;
+        }
+
+        &.about p {
+          margin: 0 auto;
+          max-width: 300px;
+        }
+
+        &.connect .socials {
+          justify-content: center;
+        }
       }
     }
   }
