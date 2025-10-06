@@ -4,13 +4,6 @@
 
 Welcome to my personal portfolio website, built with **React**, **TypeScript**, and **SCSS** using **Vite**.
 
-## tech stack
-- Framework: React + TypeScript
-- Styling: SCSS
-- Build Tool: Vite
-- Deployment: GitHub
-- Icons: FontAwesome
-
 # setup instructions
 
 ## clone the repository 
