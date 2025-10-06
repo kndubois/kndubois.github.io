@@ -17,7 +17,18 @@ export default function Home() {
           <p>
             Crafting modern, user-focused applications with clean design and scalable code.
           </p>
-          <a href="projects" className="btn">View My Work</a>
+          <div className="btn-group">
+            <a href="projects" className="btn">View My Work</a>
+
+                <a
+                  href="/KatieDubois_Resume.pdf"
+                  className="btn secondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Resume
+                </a>
+          </div>
         </div>
 
         <div className="visual">
