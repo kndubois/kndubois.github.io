@@ -177,26 +177,6 @@ p { line-height: 1.6; }
   }
 }
 
-.highlight {
-  color: $accent-color;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-}
-
-.cursor {
-  display: inline-block;
-  margin-left: 2px;
-  color: $accent-color;
-  font-weight: 500;
-  animation: blink 0.8s steps(2, start) infinite;
-  position: relative;
-  top: -2px;
-}
-@keyframes blink {
-  to { opacity: 0; }
-}
-
-
 .hero-modern {
   background: linear-gradient(135deg,rgba(6,38,48,0.85),rgba(14,145,140,0.95)), url("/images/palm-bg.png") center/cover no-repeat;
 
@@ -224,6 +204,22 @@ p { line-height: 1.6; }
       font-weight:800; 
       margin-bottom:1rem; 
       line-height:1.1;
+
+      .highlight {
+        font-size: 3.4rem;
+        font-weight: 800;
+        line-height: 1.1;
+        color: $text-light;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid $accent-color;
+        width: 0;
+        animation: typing 3s steps(22) 0.5s forwards, blink 0.8s step-end infinite alternate;
+
+        &.highlighted {
+          color: $accent-color;
+        }
+      }
     }
 
     p { 
@@ -238,6 +234,7 @@ p { line-height: 1.6; }
       flex-wrap:wrap; 
     }
   }
+}
 
   .visual {
     flex:1; 
@@ -768,6 +765,15 @@ p { line-height: 1.6; }
 
 @keyframes spin { 
   to { transform:rotate(360deg); }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color:transparent }
 }
 
 /* === Reveal === */

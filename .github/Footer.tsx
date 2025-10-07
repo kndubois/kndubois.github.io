@@ -15,23 +15,22 @@ export default function Footer() {
           <a
             href="mailto:katiedubois@hotmail.com"
             aria-label="Email"
-            title="Email"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faEnvelope} />
           </a>
           <a
             href="https://github.com/kndubois"
             aria-label="GitHub"
-            title="GitHub"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faGithub} />
           </a>
           <a
-            href="https://www.linkedin.com/in/katiedubois0502/"
+            href="https://linkedin.com/in/kndubois"
             aria-label="LinkedIn"
-            title="LinkedIn"
             target="_blank"
             rel="noopener noreferrer"
           >

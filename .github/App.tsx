@@ -45,14 +45,14 @@ function Layout() {
         </nav>
 
         <div className="socials">
-          <a href="mailto:katiedubois@hotmail.com" aria-label="Email" title="Email">
+          <a href="mailto:katiedubois@hotmail.com" aria-label="Email" target="_blank" rel="noopener noreferrer" title="Email">
             <FontAwesomeIcon icon={faEnvelope} size="2x" />
           </a>
 
           <a href="https://github.com/kndubois" target="_blank" rel="noreferrer" title="GitHub">
             <FontAwesomeIcon icon={faGithub} size="2x" />
           </a>
-          <a href="https://www.linkedin.com/in/katiedubois0502/" target="_blank" rel="noreferrer" title="LinkedIn">
+          <a href="https://www.linkedin.com/in/kndubois/" target="_blank" rel="noreferrer" title="LinkedIn">
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
           </a>
         </div>

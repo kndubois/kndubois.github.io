@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import useReveal from "../hooks/useReveal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
@@ -9,50 +8,14 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 export default function Home() {
   useReveal();
 
-  const [text, setText] = useState("");
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
-  const [deleting, setDeleting] = useState(false);
-
-  const titles = [
-    "Software Engineer",
-    "Frontend Engineer",
-    "Backend Engineer",
-    "Full Stack Engineer",
-    "Python Engineer",
-    "React Engineer",
-  ];
-  
-  useEffect(() => {
-    if (index === titles.length) return;
-
-    const current = titles[index];
-    const timeout = setTimeout(() => {
-      setText(
-        deleting ? current.substring(0, subIndex - 1) : current.substring(0, subIndex + 1)
-      );
-      setSubIndex(subIndex + (deleting ? -1 : 1));
-
-      if (!deleting && subIndex === current.length) {
-        setTimeout(() => setDeleting(true), 1500);
-      } else if (deleting && subIndex === 0) {
-        setDeleting(false);
-        setIndex((prev) => (prev + 1) % titles.length); 
-      }
-    }, deleting ? 50 : 100); 
-
-    return () => clearTimeout(timeout);
-  }, [subIndex, deleting, index, titles]);
-
   return (
     <section className="home-modern">
+
       <div className="hero-modern reveal">
         <div className="intro">
           <h3>KATIE DUBOIS</h3>
-
-          <h1>
-            <span className="highlighted">{text}</span>
-            <span className="cursor">|</span>
+          <h1 className="highlight">
+            <span className="highlighted">Software Engineer</span>
           </h1>
           <p>
             Crafting modern, user-focused applications with clean design and scalable code.
