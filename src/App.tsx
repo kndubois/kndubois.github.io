@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./components/Footer";
+import Toggle from "./components/Toggle"
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
@@ -57,6 +58,10 @@ function Layout() {
           </a>
         </div>
       </aside>
+
+      <div className="theme-toggle-wrapper">
+        <Toggle />
+      </div>
 
       <main className="content">
         <Outlet />
