@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Katie Dubois</title>
-    <script type="module" crossorigin src="/assets/index-gBrOEKci.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CDBBMKHt.css">
+    <script type="module" crossorigin src="/assets/index-B2mqlDkR.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DcuXp1C4.css">
   </head>
   <body>
     <div id="root"></div>
   </body>
 </html>
+
+
+<script>
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  document.documentElement.setAttribute("data-theme", savedTheme);
+</script>
