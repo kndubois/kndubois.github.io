@@ -59,7 +59,7 @@ export default function Home() {
               View My Work
             </a>
             <a
-              href="/KatieDubois_Resume.pdf"
+              href="/resume/KatieDubois_Resume.pdf"
               className="btn secondary"
               target="_blank"
               rel="noopener noreferrer"
