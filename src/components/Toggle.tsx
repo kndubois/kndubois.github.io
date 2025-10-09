@@ -2,19 +2,24 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function Toggle() {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
   useEffect(() => {
-    document.body.setAttribute("data-theme", theme);
+    document.documentElement.setAttribute("data-theme", theme); 
     localStorage.setItem("theme", theme);
   }, [theme]);
+
+  const handleToggle = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   return (
     <motion.button
       className="theme-toggle"
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      aria-label="Toggle theme"
-      whileTap={{ scale: 0.9 }}
+      onClick={handleToggle}
+      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: 1.05 }}
     >
       <motion.div
         className="toggle-track"
@@ -27,7 +32,9 @@ export default function Toggle() {
           className="toggle-thumb"
           layout
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
-        />
+        >
+          <span className="toggle-icon">{theme === "light" ? "☀️" : "🌙"}</span>
+        </motion.div>
       </motion.div>
     </motion.button>
   );

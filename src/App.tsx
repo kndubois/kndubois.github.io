@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./components/Footer";
-import Toggle from "./components/Toggle"
+import Toggle from "./components/Toggle";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
@@ -16,14 +16,19 @@ function Layout() {
     <div className="layout">
       <button
         className="hamburger"
-        aria-label="Toggle menu"
+        aria-label="Toggle navigation menu"
         onClick={() => setNavOpen(!navOpen)}
+        aria-expanded={navOpen}
       >
-        ☰
+        <span className="hamburger-icon">☰</span>
       </button>
 
       <aside className={`sidebar ${navOpen ? "show-nav" : ""}`}>
-        <div className="logo"><a href="/">K</a></div>
+        <div className="logo">
+          <a href="/" aria-label="Home">
+            K
+          </a>
+        </div>
 
         <nav>
           <ul>
@@ -46,14 +51,29 @@ function Layout() {
         </nav>
 
         <div className="socials">
-          <a href="mailto:katiedubois@hotmail.com" aria-label="Email" title="Email">
+          <a
+            href="mailto:katiedubois@hotmail.com"
+            aria-label="Email Katie Dubois"
+            title="Email"
+          >
             <FontAwesomeIcon icon={faEnvelope} size="2x" />
           </a>
-
-          <a href="https://github.com/kndubois" target="_blank" rel="noreferrer" title="GitHub">
+          <a
+            href="https://github.com/kndubois"
+            target="_blank"
+            rel="noreferrer"
+            title="GitHub"
+            aria-label="Visit Katie Dubois's GitHub"
+          >
             <FontAwesomeIcon icon={faGithub} size="2x" />
           </a>
-          <a href="https://www.linkedin.com/in/katiedubois0502/" target="_blank" rel="noreferrer" title="LinkedIn">
+          <a
+            href="https://www.linkedin.com/in/katiedubois0502/"
+            target="_blank"
+            rel="noreferrer"
+            title="LinkedIn"
+            aria-label="Visit Katie Dubois's LinkedIn"
+          >
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
           </a>
         </div>
