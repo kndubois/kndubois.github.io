@@ -1,26 +1,47 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
+import { faFolderOpen, faCalendarAlt, faUserTie, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function Projects() {
   const projects = [
     {
       name: "FinTrack",
-      desc: "A personal finance tracker.",
-      tech: ["Python", "Azure SQL"],
+      desc:
+        "Personal finance tracker that logs transactions, analyzes spending, and surfaces budget insights with clean, modular architecture.",
+      meta: { role: "Backend Dev", year: "2024", status: "Active" },
+      highlights: [
+        "Clean architecture + patterns (Factory/Observer) for extensibility",
+        "Azure SQL schema optimized with indexes & parameterized queries",
+        "Currency conversion via external API with rate caching",
+      ],
+      tech: ["Python", "Azure SQL", "REST API", "Factory Pattern", "Observer Pattern"],
       demo: "#",
       github: "https://github.com/kndubois/FinTrack",
     },
     {
       name: "TravelPlanner",
-      desc: "A trip itinerary app.",
-      tech: ["Node.js", "Express", "Mustache"],
+      desc:
+        "Full-stack itinerary builder where users plan trips across flights, rail, and road — fast CRUD, server-rendered templates.",
+      meta: { role: "Full-stack", year: "2023", status: "Complete" },
+      highlights: [
+        "Express + Mustache SSR for quick loads and SEO",
+        "Structured routing & middleware for auth/validation",
+        "SQLite storage with relational trip/segment models",
+      ],
+      tech: ["Node.js", "Express", "Mustache", "SQLite"],
       demo: "#",
       github: "https://github.com/kndubois/TravelPlanner",
     },
     {
       name: "Meat Meals",
-      desc: "A weight loss meal tracker.",
-      tech: ["HTML", "Python", "Azure SQL"],
+      desc:
+        "Meal & weight tracker focused on sustainable loss — daily intake summaries, nutrition lookup, and progress trends.",
+      meta: { role: "Backend Dev", year: "2023", status: "Active" },
+      highlights: [
+        "Nutrition data via Spoonacular with request throttling",
+        "Azure SQL for logs + weekly roll-ups and macros",
+        "Simple UX: add meals fast, see actionable summaries",
+      ],
+      tech: ["Python", "HTML", "Azure SQL", "Spoonacular API"],
       demo: "#",
       github: "https://github.com/kndubois/MeatMeals",
     },
@@ -44,7 +65,29 @@ export default function Projects() {
               </a>
 
               <h2>{p.name}</h2>
+
+              <div className="meta">
+                <span>
+                  <FontAwesomeIcon icon={faUserTie} />
+                  {p.meta.role}
+                </span>
+                <span>
+                  <FontAwesomeIcon icon={faCalendarAlt} />
+                  {p.meta.year}
+                </span>
+                <span>
+                  <FontAwesomeIcon icon={faCircleCheck} />
+                  {p.meta.status}
+                </span>
+              </div>
+
               <p>{p.desc}</p>
+
+              <ul className="highlights">
+                {p.highlights.map((h) => (
+                  <li key={h}>{h}</li>
+                ))}
+              </ul>
 
               <div className="tech-stack">
                 {p.tech.map((t) => (
