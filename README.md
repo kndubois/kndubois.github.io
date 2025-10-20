@@ -22,6 +22,11 @@ npm install
 npm run dev
 ```
 
+## push deployment
+```
+npm run deploy
+```
+
 ## localhost
 ```
 http://localhost:5173/

@@ -23,6 +23,8 @@
   --dark-bg-rgb: 4, 28, 36;
   --mid-bg: #08383f; // sea-teal
   --light-bg: #f5fafa; // softer light background
+  --page-bg: var(--light-bg);
+   --bg-gradient: linear-gradient(135deg, var(--dark-bg), var(--mid-bg) 50%, var(--primary));
   --text-dark: #1a1a1a;
   --text-light: #ffffff;
   --text-body: #213547;
@@ -42,15 +44,18 @@
 /* === Base === */
 html,
 body,
-#root {
+#root,
+.layout {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: var(--font-alt);
-  background: var(--light-bg);
+  background: var(--bg-gradient);
   color: var(--text-body);
   scroll-behavior: smooth;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 h1,
@@ -165,7 +170,7 @@ p { line-height: 1.7; font-size: 1.05rem; }
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
 
     a {
       color: var(--primary);
@@ -235,7 +240,8 @@ p { line-height: 1.7; font-size: 1.05rem; }
 
 /* === Hero === */
 .home-modern {
-  background: linear-gradient(135deg, var(--dark-bg), var(--mid-bg) 50%, var(--primary));
+  background: transparent;
+  // background: linear-gradient(135deg, var(--dark-bg), var(--mid-bg) 50%, var(--primary));
   color: var(--text-light);
 }
 
@@ -508,8 +514,6 @@ p { line-height: 1.7; font-size: 1.05rem; }
 
 .projects {
   padding: clamp(4rem, 8vw, 6rem) 8%;
-  min-height: 100vh;
-  background: var(--light-bg);
   color: var(--text-body);
   transition: background 0.4s ease, color 0.4s ease;
 
@@ -532,6 +536,8 @@ p { line-height: 1.7; font-size: 1.05rem; }
   .project-card {
     position: relative;
     background: #fff;
+    display: flex;
+    flex-direction: column;
     border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
     padding: 2rem;
@@ -578,6 +584,7 @@ p { line-height: 1.7; font-size: 1.05rem; }
       flex-wrap: wrap;
       gap: 0.6rem;
       margin-bottom: 1.5rem;
+      row-gap: 0.5rem;
 
       span {
         background: rgba(var(--primary-rgb), 0.1);
@@ -587,6 +594,7 @@ p { line-height: 1.7; font-size: 1.05rem; }
         font-size: 0.85rem;
         font-weight: 600;
         transition: all 0.3s ease;
+        white-space: nowrap;
 
         &:hover {
           background: var(--primary);
@@ -597,14 +605,20 @@ p { line-height: 1.7; font-size: 1.05rem; }
     }
 
     .buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: auto; 
 
       .btn-card {
-        flex: 1;
+        width: 100%;
+        min-width: 0;
+        min-height: 48px;
+        display: flex;
         text-align: center;
-        padding: 0.9rem 1rem;
+        align-items:center;
+        justify-content: center;
+        // padding: 0.9rem 1rem;
         border-radius: 10px;
         font-weight: 600;
         text-decoration: none;
@@ -627,6 +641,11 @@ p { line-height: 1.7; font-size: 1.05rem; }
           }
         }
       }
+
+      @media (max-width: 480px) {
+      .project-card .buttons {
+        grid-template-columns: 1fr;
+      } }
     }
   }
 }
@@ -635,7 +654,6 @@ p { line-height: 1.7; font-size: 1.05rem; }
 /* === Contact Page === */
 .contact {
   padding: clamp(4rem, 8vw, 6rem) 8%;
-  background: var(--light-bg);
   color: var(--text-body);
   text-align: center;
   min-height: 100vh;
@@ -802,8 +820,10 @@ p { line-height: 1.7; font-size: 1.05rem; }
 
 /* === Dark Mode === */
 [data-theme="dark"] {
-  background: linear-gradient(135deg, #020b10, #03161b 50%, var(--dark-bg));
+  --page-bg: linear-gradient(135deg, var(--dark-bg), var(--mid-bg) 50%, var(--primary));
+
   color: var(--text-light);
+
   h1 {
     color: var(--accent);
   }
@@ -813,7 +833,7 @@ p { line-height: 1.7; font-size: 1.05rem; }
   }
 
   .sidebar {
-    background: rgba(var(--dark-bg-rgb), 0.95);
+    background: rgba(var(--dark-bg-rgb), 0.98);
 
     .logo a {
       color: var(--accent);
@@ -886,7 +906,7 @@ p { line-height: 1.7; font-size: 1.05rem; }
   }
 
   .projects {
-    background: var(--dark-bg);
+    background: transparent;
     color: var(--text-light);
 
     h1 {
@@ -955,8 +975,8 @@ p { line-height: 1.7; font-size: 1.05rem; }
   }
 
   .contact {
-    background: var(--dark-bg);
     color: var(--text-light);
+    background: transparent;
 
     h1 {
       color: var(--accent);
@@ -1135,7 +1155,7 @@ p { line-height: 1.7; font-size: 1.05rem; }
     left: -100%;
     width: 240px;
     padding: 2rem;
-    background: rgba(var(--dark-bg-rgb), 0.95);
+    background: rgba(var(--dark-bg-rgb), 0.98);
 
     &.show-nav { left: 0; }
 
