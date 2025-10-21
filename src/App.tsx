@@ -19,11 +19,18 @@ function Layout() {
         aria-label="Toggle navigation menu"
         onClick={() => setNavOpen(!navOpen)}
         aria-expanded={navOpen}
+        aria-controls="mobile-sidebar"
       >
         <span className="hamburger-icon">☰</span>
       </button>
 
-      <aside className={`sidebar ${navOpen ? "show-nav" : ""}`}>
+      <div
+        className={`backdrop ${navOpen ? "show" : ""}`}
+        onClick={() => setNavOpen(false)}
+        aria-hidden="true"
+      />
+
+      <aside id="mobile-sidebar" className={`sidebar ${navOpen ? "show-nav" : ""}`}>
         <div className="logo">
           <a href="/" aria-label="Home">
             K
