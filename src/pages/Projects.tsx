@@ -7,7 +7,7 @@ export default function Projects() {
       name: "FinTrack",
       desc:
         "Personal finance tracker that logs transactions, analyzes spending, and surfaces budget insights with clean, modular architecture.",
-      meta: { role: "Backend Dev", year: "2024", status: "Active" },
+      meta: { role: "Backend Dev", year: "2025", status: "Complete" },
       highlights: [
         "Clean architecture + patterns (Factory/Observer) for extensibility",
         "Azure SQL schema optimized with indexes & parameterized queries",
@@ -21,7 +21,7 @@ export default function Projects() {
       name: "TravelPlanner",
       desc:
         "Full-stack itinerary builder where users plan trips across flights, rail, and road — fast CRUD, server-rendered templates.",
-      meta: { role: "Full-stack", year: "2023", status: "Complete" },
+      meta: { role: "Full-stack", year: "2025", status: "Active" },
       highlights: [
         "Express + Mustache SSR for quick loads and SEO",
         "Structured routing & middleware for auth/validation",
@@ -32,16 +32,30 @@ export default function Projects() {
       github: "https://github.com/kndubois/TravelPlanner",
     },
     {
+      name: "LaPalma",
+      desc:
+        "Responsive hotel booking platform showcasing tropical-inspired design, modern UI components, and a dynamic booking flow for suites and amenities.",
+      meta: { role: "Full-stack", year: "2023", status: "In Progress" },
+      highlights: [
+        "Next.js architecture with reusable components and server routes",
+        "Booking forms with calendar integration and client/server validation",
+        "Responsive, accessible layout styled with modern SCSS and subtle animations"
+      ],
+      tech: ["Next.js", "React", "TypeScript", "SCSS", "HTML", "CSS", "JavaScript", "Vite", "REST API"],
+      demo: "#",
+      github: "https://github.com/kndubois/LaPalma",
+    },
+    {
       name: "Meat Meals",
       desc:
         "Meal & weight tracker focused on sustainable loss — daily intake summaries, nutrition lookup, and progress trends.",
-      meta: { role: "Backend Dev", year: "2023", status: "Active" },
+      meta: { role: "Full-stack", year: "2025", status: "Complete" },
       highlights: [
         "Nutrition data via Spoonacular with request throttling",
         "Azure SQL for logs + weekly roll-ups and macros",
         "Simple UX: add meals fast, see actionable summaries",
       ],
-      tech: ["Python", "HTML", "Azure SQL", "Spoonacular API"],
+      tech: ["Python", "JavaScript", "HTML", "CSS", "Azure SQL", "Spoonacular API"],
       demo: "#",
       github: "https://github.com/kndubois/MeatMeals",
     },
