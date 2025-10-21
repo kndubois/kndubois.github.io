@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -11,6 +11,35 @@ import Contact from "./pages/Contact";
 
 function Layout() {
   const [navOpen, setNavOpen] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 768px)");
+    const handleChange = () => setNavOpen(false);
+
+    handleChange();
+
+    if (mql.addEventListener) mql.addEventListener("change", handleChange);
+    else mql.addListener(handleChange);
+
+    return () => {
+      if (mql.removeEventListener) mql.removeEventListener("change", handleChange);
+      else mql.removeListener(handleChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("nav-open", navOpen);
+    document.body.classList.toggle("no-scroll", navOpen);
+  }, [navOpen]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setNavOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
 
   return (
     <div className="layout">
@@ -33,7 +62,18 @@ function Layout() {
       <aside id="mobile-sidebar" className={`sidebar ${navOpen ? "show-nav" : ""}`}>
         <div className="logo">
           <a href="/" aria-label="Home">
-            K
+            <img 
+              src="/images/wlogo.png"
+              alt="Palm Tree" 
+              loading="lazy"
+              className="logo-img logo--white"
+            />
+            <img 
+              src="/images/blogo.png"
+              alt="Palm Tree" 
+              loading="lazy"
+              className="logo-img logo--black"
+            />
           </a>
         </div>
 
