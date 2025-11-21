@@ -115,7 +115,7 @@ function Layout() {
             <FontAwesomeIcon icon={faGithub} size="2x" />
           </a>
           <a
-            href="https://www.linkedin.com/in/katiedubois0502/"
+            href="https://www.linkedin.com/in/katiendubois/"
             target="_blank"
             rel="noreferrer"
             title="LinkedIn"

@@ -29,7 +29,7 @@ export default function Footer() {
             <FontAwesomeIcon icon={faGithub} />
           </a>
           <a
-            href="https://www.linkedin.com/in/katiedubois0502/"
+            href="https://www.linkedin.com/in/katiendubois/"
             aria-label="LinkedIn"
             title="LinkedIn"
             target="_blank"
