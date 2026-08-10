@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  // Set theme before first paint to avoid a flash, and default to light
+  (function () {
+    var t = localStorage.getItem('theme');
+    document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photography — Katie Dubois</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="img/favicon-light.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" href="img/favicon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="avatar"><img class="logo-light" src="img/logo-black.png" alt="Katie logo"><img class="logo-dark" src="img/logo-white.png" alt="Katie logo"></div>
+      <div class="name">Katie Dubois</div>
+    </a>
+    <div class="header-right">
+      <nav class="header-nav" aria-label="Primary">
+        <ul>
+          <li><a href="work.html" class="link-hover">Work</a></li>
+          <li><a href="about.html" class="link-hover">About</a></li>
+          <li><a href="contact.html" class="link-hover">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="resume.pdf" class="resume-pill" target="_blank" rel="noopener">Résumé</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="page-title reveal">
+    <h1>Photography</h1>
+    <p>
+      Outside of building products, photography is something I enjoy when I travel or just move through a day differently. It helps me slow down and notice things I'd normally walk past.
+    </p>
+  </div>
+
+  <div class="section reveal">
+    <div class="gallery" id="gallery">
+      <button class="gallery-item" data-full="img/photography/photo-1.jpg">
+        <img src="img/photography/photo-1.jpg" alt="Photo 1" loading="lazy">
+      </button>
+      <button class="gallery-item" data-full="img/photography/photo-2.jpg">
+        <img src="img/photography/photo-2.jpg" alt="Photo 2" loading="lazy">
+      </button>
+      <button class="gallery-item" data-full="img/photography/photo-3.jpg">
+        <img src="img/photography/photo-3.jpg" alt="Photo 3" loading="lazy">
+      </button>
+      <button class="gallery-item" data-full="img/photography/photo-4.jpg">
+        <img src="img/photography/photo-4.jpg" alt="Photo 4" loading="lazy">
+      </button>
+      <button class="gallery-item" data-full="img/photography/photo-5.png">
+        <img src="img/photography/photo-5.png" alt="Photo 5" loading="lazy">
+      </button>
+      <button class="gallery-item" data-full="img/photography/photo-6.jpg">
+        <img src="img/photography/photo-6.jpg" alt="Photo 6" loading="lazy">
+      </button>
+    </div>
+    <button class="gallery-more" id="galleryMore">Show more</button>
+  </div>
+
+  <footer class="site-footer reveal">
+    <span>© 2026 Katie Dubois. All rights reserved.</span>
+  </footer>
+
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-nav next" id="lightboxNext" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+</div>
+
+<button class="to-top" id="toTop" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+
+  const siteHeader = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    siteHeader.classList.toggle('scrolled', window.scrollY > 8);
+  });
+
+  // Masonry: always place the next photo into the currently shortest column,
+  // instead of relying on CSS `columns` (which fills one column at a time
+  // and lets a run of tall photos hog the first column).
+  const galleryEl = document.getElementById('gallery');
+  const allItems = Array.from(galleryEl.querySelectorAll('.gallery-item'));
+
+  const getColumnCount = () => (window.matchMedia('(min-width: 480px)').matches ? 3 : 2);
+
+  const layoutMasonry = () => {
+    const colCount = getColumnCount();
+    galleryEl.innerHTML = '';
+    const cols = [];
+    for (let i = 0; i < colCount; i++) {
+      const col = document.createElement('div');
+      col.className = 'gallery-col';
+      galleryEl.appendChild(col); // attach immediately — offsetHeight is 0 for detached elements
+      cols.push(col);
+    }
+    allItems
+      .filter((item) => !item.classList.contains('hidden'))
+      .forEach((item) => {
+        let shortestIndex = 0;
+        for (let i = 1; i < colCount; i++) {
+          if (cols[i].offsetHeight < cols[shortestIndex].offsetHeight) shortestIndex = i;
+        }
+        cols[shortestIndex].appendChild(item);
+      });
+  };
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(layoutMasonry, 150);
+  });
+
+  allItems.forEach((item) => {
+    const img = item.querySelector('img');
+    if (img && !img.complete) {
+      img.addEventListener('load', layoutMasonry);
+    }
+  });
+
+  layoutMasonry();
+
+  // Show more
+  const moreBtn = document.getElementById('galleryMore');
+  const hiddenItems = allItems.filter((item) => item.classList.contains('hidden'));
+  if (hiddenItems.length === 0) {
+    moreBtn.classList.add('is-hidden');
+  }
+  moreBtn.addEventListener('click', () => {
+    hiddenItems.forEach((item) => item.classList.remove('hidden'));
+    moreBtn.classList.add('is-hidden');
+    layoutMasonry();
+  });
+
+  // Lightbox
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  let currentIndex = 0;
+
+  const openLightbox = (index) => {
+    currentIndex = index;
+    lightboxImg.src = items[currentIndex].dataset.full;
+    lightbox.classList.add('open');
+  };
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    lightboxImg.src = '';
+  };
+  const showRelative = (delta) => {
+    currentIndex = (currentIndex + delta + items.length) % items.length;
+    lightboxImg.src = items[currentIndex].dataset.full;
+  };
+
+  items.forEach((item, index) => {
+    item.addEventListener('click', () => openLightbox(index));
+  });
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', () => showRelative(-1));
+  document.getElementById('lightboxNext').addEventListener('click', () => showRelative(1));
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showRelative(-1);
+    if (e.key === 'ArrowRight') showRelative(1);
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  const toTopBtn = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    toTopBtn.classList.toggle('visible', window.scrollY > 480);
+  });
+  toTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>

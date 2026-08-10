@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  (function () {
+    var t = localStorage.getItem('theme');
+    document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katie Dubois</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="img/favicon-light.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" href="img/favicon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="avatar"><img class="logo-light" src="img/logo-black.png" alt="Katie logo"><img class="logo-dark" src="img/logo-white.png" alt="Katie logo"></div>
+      <div class="name">Katie Dubois</div>
+    </a>
+    <div class="header-right">
+      <nav class="header-nav" aria-label="Primary">
+        <ul>
+          <li><a href="work.html" class="link-hover">Work</a></li>
+          <li><a href="about.html" class="link-hover">About</a></li>
+          <li><a href="contact.html" class="link-hover">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="resume/resume.pdf" class="resume-pill" target="_blank" rel="noopener">Résumé</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="section hero reveal">
+    <h1><span class="highlighted" id="cycleText"></span><span class="cursor"></span>  building iOS and web products.</h1>
+    <p>
+      I'm an independent developer building focused iOS and web products — from first concept to a shipped, polished release. I care about the details as much as the big picture: how something works, how it feels, and why it's there at all.
+    </p>
+  </div>
+
+
+  <div class="section reveal">
+    <h2>What I do</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>iOS Development</h3>
+        <p>Native apps built with Swift and SwiftUI — from first concept through App Store launch.</p>
+      </div>
+      <div class="feature">
+        <h3>Web Development</h3>
+        <p>Full-stack web products built with React, TypeScript, and modern tooling.</p>
+      </div>
+      <div class="feature">
+        <h3>Product Design</h3>
+        <p>Interfaces designed with intention — clean, considered, and built to earn their place.</p>
+      </div>
+      <div class="feature">
+        <h3>End to End</h3>
+        <p>From the first idea to a shipped, polished release — solo, start to finish.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="section-head-row">
+      <h2>Featured Projects</h2>
+      <a href="work.html" class="link-hover see-all">See all</a>
+    </div>
+    <ul class="project-list">
+      <li>
+        <div class="name"><a href="work.html" class="link-hover">Product One</a></div>
+        <div class="desc">A focused iOS app built for one clear daily use case, with a minimal, native feel.</div>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span></div>
+      </li>
+      <li>
+        <div class="name"><a href="work.html" class="link-hover">Product Two</a></div>
+        <div class="desc">A web platform designed around a single clear interaction, from first load to long-term use.</div>
+        <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span></div>
+      </li>
+      <li>
+        <div class="name"><a href="work.html" class="link-hover">Product Three</a></div>
+        <div class="desc">A smaller tool built to solve one problem cleanly, without extra surface area.</div>
+        <div class="tags"><span class="tag">TypeScript</span></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section footer reveal" id="contact">
+    <h1>Let's build something.</h1>
+    <p>Open to new projects, collaborations, and good ideas.</p>
+    <p><a class="email link-hover js-copy-email" href="#" data-email="katiedubois@hotmail.com">katiedubois@hotmail.com</a></p>
+    <div class="socials">
+      <a href="https://github.com/kndubois" class="link-hover">GitHub</a>
+      <a href="https://www.linkedin.com/in/katiedubois12/" class="link-hover">LinkedIn</a>
+    </div>
+  </div>
+
+  <footer class="site-footer reveal">
+    <span>© 2026 Katie Dubois. All rights reserved.</span>
+  </footer>
+</div>
+
+<button class="to-top" id="toTop" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+  // Theme toggle
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+
+
+  // Cycling role text (typewriter effect)
+  const titles = [
+    "Software Developer",
+    "iOS Developer",
+    "Web Developer",
+    "Product Designer",
+  ];
+  let titleIndex = 0;
+  let subIndex = 0;
+  let deleting = false;
+  const cycleEl = document.getElementById('cycleText');
+
+  function tickTitle() {
+    const current = titles[titleIndex];
+    let delay = deleting ? 50 : 100;
+
+    if (!deleting) {
+      subIndex++;
+      cycleEl.textContent = current.substring(0, subIndex);
+      if (subIndex === current.length) {
+        delay = 1500;
+        deleting = true;
+      }
+    } else {
+      subIndex--;
+      cycleEl.textContent = current.substring(0, subIndex);
+      if (subIndex === 0) {
+        deleting = false;
+        titleIndex = (titleIndex + 1) % titles.length;
+        delay = 300;
+      }
+    }
+
+    setTimeout(tickTitle, delay);
+  }
+  tickTitle();
+
+  // Header scroll shadow/border
+  const siteHeader = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    siteHeader.classList.toggle('scrolled', window.scrollY > 8);
+  });
+
+  // Copy email
+  const copyEmail = async (email) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(email);
+      return;
+    }
+    const input = document.createElement('textarea');
+    input.value = email;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+  };
+
+  const toast = document.createElement('div');
+  toast.className = 'copy-toast';
+  toast.setAttribute('aria-live', 'polite');
+  toast.textContent = 'Copied';
+  document.body.appendChild(toast);
+
+  let toastTimer = null;
+  const showToast = () => {
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 1400);
+  };
+
+  document.querySelectorAll('.js-copy-email').forEach((el) => {
+    el.addEventListener('click', async (event) => {
+      event.preventDefault();
+      const email = el.dataset.email;
+      if (!email) return;
+      try {
+        await copyEmail(email);
+        showToast();
+      } catch (error) {
+        console.error('Copy failed', error);
+      }
+    });
+  });
+
+  // Scroll reveal
+  document.querySelectorAll('.carousel').forEach((carousel) => {
+    const track = carousel.querySelector('.carousel-track');
+    const dots = carousel.querySelectorAll('.dot');
+    track.addEventListener('scroll', () => {
+      const index = Math.round(track.scrollLeft / track.clientWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    });
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Scroll to top
+  const toTopBtn = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    toTopBtn.classList.toggle('visible', window.scrollY > 480);
+  });
+  toTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
