@@ -1,6 +1,8 @@
 /* ============================================
-   Katie — shared site stylesheet
-   Used by index.html, work.html, about.html, contact.html
+    https://katiedubois.dev/
+    css stylesheet
+
+    welcome :) 
    ============================================ */
 
 :root {
@@ -11,8 +13,10 @@
   --line: #e7e7e5;
   --card: #f3f3f1;
   --card-hover: #ececea;
+  --selection-bg: #d9d9d6;
+  --selection-text: #141414;
 }
-
+ 
 html[data-theme="dark"] {
   --ink: #f0f0ee;
   --muted: #a3a3aa;
@@ -21,9 +25,14 @@ html[data-theme="dark"] {
   --line: #262628;
   --card: #1c1c1e;
   --card-hover: #232325;
+  --selection-bg: #3a3a3c;
+  --selection-text: #f0f0ee;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+::selection { background: var(--selection-bg); color: var(--selection-text); }
+::-moz-selection { background: var(--selection-bg); color: var(--selection-text); }
 
 html { transition: background 0.3s ease; }
 
