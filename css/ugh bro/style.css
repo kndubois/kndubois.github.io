@@ -630,22 +630,29 @@ html[data-theme="dark"] .theme-toggle .moon { display: none; }
 }
 
 .carousel-track {
-  position: relative;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.carousel-track::-webkit-scrollbar { display: none; }
 
 .carousel-slide {
-  display: none;
-  width: 100%;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 12px;
   color: var(--faint);
   letter-spacing: 0.02em;
 }
-.carousel-slide.active {
-  display: block;
-}
 .carousel-slide img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -683,8 +690,13 @@ html[data-theme="dark"] .theme-toggle .moon { display: none; }
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  opacity: 0;
   transition: opacity 0.2s ease, background 0.2s ease;
   backdrop-filter: blur(4px);
+}
+.carousel:hover .carousel-arrow,
+.carousel-arrow:focus-visible {
+  opacity: 1;
 }
 .carousel-arrow:hover { background: rgba(255,255,255,0.95); }
 html[data-theme="dark"] .carousel-arrow {
@@ -696,6 +708,10 @@ html[data-theme="dark"] .carousel-arrow:hover { background: rgba(20,20,20,0.9); 
 .carousel-arrow.next { right: 10px; }
 .carousel-arrow svg { width: 15px; height: 15px; }
 .carousel-arrow:disabled { opacity: 0 !important; pointer-events: none; }
+
+@media (hover: none) {
+  .carousel-arrow { display: none; }
+}
 
 .project h3.title {
   font-size: 18px;
