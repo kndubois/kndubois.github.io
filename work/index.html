@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <script>
-  // Set theme before first paint to avoid a flash, and default to light
   (function () {
     var t = localStorage.getItem('theme');
     document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
@@ -17,25 +16,25 @@
 <link rel="icon" type="image/png" href="img/favicon-dark.png" media="(prefers-color-scheme: dark)">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
 <header id="siteHeader">
   <div class="header-inner">
-    <a href="index.html" class="logo">
-      <div class="avatar"><img class="logo-light" src="img/logo-black.png" alt="Katie logo"><img class="logo-dark" src="img/logo-white.png" alt="Katie logo"></div>
+    <a href="/" class="logo">
+      <div class="avatar"><img class="logo-light" src="/img/logo-black.png" alt="Katie Dubois logo"><img class="logo-dark" src="/img/logo-white.png" alt="Katie Dubois logo"></div>
       <div class="name">Katie Dubois</div>
     </a>
     <div class="header-right">
       <nav class="header-nav" aria-label="Primary">
         <ul>
-          <li><a href="work.html" class="link-hover">Work</a></li>
-          <li><a href="about.html" class="link-hover">About</a></li>
-          <li><a href="contact.html" class="link-hover">Contact</a></li>
+          <li><a href="/work/" class="active link-hover">Work</a></li>
+          <li><a href="/about/" class="link-hover">About</a></li>
+          <li><a href="/contact/" class="link-hover">Contact</a></li>
         </ul>
       </nav>
-      <a href="resume.pdf" class="resume-pill" target="_blank" rel="noopener">Résumé</a>
+      <a href="/resume.pdf" class="resume-pill" target="_blank" rel="noopener">Résumé</a>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
